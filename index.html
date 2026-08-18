@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#ff6a00">
+  <meta name="description" content="Alfa Suplementos — catálogo de suplementos com carrinho e finalização de compra pelo WhatsApp.">
+  <title>Alfa Suplementos V9 | Loyalty & Growth OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="v6.css"><link rel="stylesheet" href="v7.css"><link rel="stylesheet" href="v8.css"><link rel="stylesheet" href="v9.css">
+</head>
+<body>
+  <canvas id="evolutionCanvas" aria-hidden="true"></canvas><div class="evolution-aurora" aria-hidden="true"></div><div class="evolution-lines" aria-hidden="true"></div><div class="scroll-evolution-indicator" aria-hidden="true"><i></i></div><div class="evolution-label" aria-hidden="true">EVOLUÇÃO ALFA</div>
+  <div class="page-progress" id="pageProgress"></div>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="announcement"><div class="announcement__track" id="announcementTrack"></div></div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="brand"><img src="assets/logo-alfa-suplementos.png" alt="Alfa Suplementos"></a>
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="active">Início</a>
+        <button class="nav-mega-trigger" id="megaMenuTrigger">Comprar <i class="fa-solid fa-chevron-down"></i></button>
+        <a href="#objetivos">Objetivos</a><a href="#produtos">Produtos</a><a href="#combos">Combos</a><a href="#avaliacoes">Avaliações</a><a href="#clube-alfa">Clube Alfa</a><a href="#contato">Contato</a>
+      </nav>
+      <div class="header__actions">
+        <button class="icon-btn" id="searchTrigger" aria-label="Pesquisar"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon-btn favorites-button" id="favoritesButton" aria-label="Favoritos"><i class="fa-regular fa-heart"></i><span id="favoriteCount">0</span></button><button class="v8-account-btn" id="v8AccountButton" aria-label="Minha Alfa"><i class="fa-regular fa-user"></i><span>Minha Alfa</span></button>
+        <button class="cart-button" id="cartButton"><i class="fa-solid fa-cart-shopping"></i><span>Carrinho</span><b id="cartCount">0</b></button>
+        <button class="menu-button" id="menuButton" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mega-menu" id="megaMenu" aria-hidden="true">
+    <div class="container mega-menu__grid">
+      <div><span class="mega-kicker">POR OBJETIVO</span><button data-goal="massa"><i class="fa-solid fa-dumbbell"></i><b>Ganhar massa</b><small>Proteína, creatina e calorias</small></button><button data-goal="energia"><i class="fa-solid fa-bolt"></i><b>Mais energia</b><small>Pré-treinos e performance</small></button></div>
+      <div><span class="mega-kicker">CATEGORIAS</span><a href="#produtos" data-mega-filter="Proteínas">Proteínas</a><a href="#produtos" data-mega-filter="Creatinas">Creatinas</a><a href="#produtos" data-mega-filter="Pré-treinos">Pré-treinos</a><a href="#produtos" data-mega-filter="Vitaminas">Vitaminas</a></div>
+      <div class="mega-feature"><span>ALFA PICK</span><strong>Monte seu stack em 30 segundos.</strong><p>Responda 3 perguntas e receba uma seleção de produtos para seu objetivo.</p><button class="btn btn--primary" data-open-recommender>COMEÇAR AGORA</button></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero__grid"></div><div class="hero__orb hero__orb--1"></div><div class="hero__orb hero__orb--2"></div>
+      <div class="container hero__content">
+        <div class="hero__copy reveal">
+          <div class="eyebrow"><span></span> ALFA SUPLEMENTOS • PERFORMANCE SHOP</div>
+          <h1><span id="heroTitleTop">SUPERE SEUS</span><span class="text-outline" id="heroTitleOutline">LIMITES.</span><strong id="heroTitleAccent">EVOLUA.</strong></h1>
+          <p id="heroSubtitle"></p>
+          <div class="hero__actions"><a class="btn btn--primary magnetic" href="#produtos">COMPRAR AGORA <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn--ghost" href="#combos">VER COMBOS</a></div>
+          <div class="hero__stats"><div><strong data-count="500">0</strong><span>Clientes</span></div><div><strong data-count="12">0</strong><span>Produtos cadastrados</span></div><div><strong>WhatsApp</strong><span>Checkout humano</span></div></div>
+        </div>
+        <div class="hero__visual reveal reveal--delay">
+          <div class="hero-stage">
+            <div class="hero-stage__halo"></div><div class="hero-stage__ring ring-a"></div><div class="hero-stage__ring ring-b"></div>
+            <div class="hero-pack"><span class="hero-pack__cap"></span><div class="hero-pack__label"><small>ALFA</small><b>WHEY</b><em>PERFORMANCE</em></div></div>
+            <span class="float-chip chip-a"><i class="fa-solid fa-bolt"></i> ENERGIA</span><span class="float-chip chip-b"><i class="fa-solid fa-dumbbell"></i> FORÇA</span><span class="float-chip chip-c"><i class="fa-solid fa-chart-line"></i> EVOLUÇÃO</span>
+            <div class="v7-hero-product" id="v7HeroProduct"><span class="v7-hero-product__tag">DESTAQUE</span><strong id="v7HeroProductName">100% Whey Premium</strong><small id="v7HeroProductPrice">R$ 119,90</small></div>
+            <div class="v7-hero-controls" aria-label="Produtos em destaque"><button id="v7HeroPrev" aria-label="Produto anterior"><i class="fa-solid fa-arrow-left"></i></button><div id="v7HeroDots"></div><button id="v7HeroNext" aria-label="Próximo produto"><i class="fa-solid fa-arrow-right"></i></button></div>
+          </div>
+        </div>
+      </div>
+      <div class="marquee"><div class="marquee__track"><span>WHEY • CREATINA • PRÉ-TREINO • HIPERCALÓRICO • VITAMINAS • SNACKS • AMINOÁCIDOS • </span><span>WHEY • CREATINA • PRÉ-TREINO • HIPERCALÓRICO • VITAMINAS • SNACKS • AMINOÁCIDOS • </span></div></div>
+    </section>
+
+
+    <section class="v8-campaigns" id="ofertas-personalizadas" aria-label="Campanhas Alfa">
+      <div class="container">
+        <div class="v8-campaign-rail reveal" id="v8CampaignRail">
+          <div class="v8-campaign-stage" id="v8CampaignStage"></div>
+          <div class="v8-campaign-controls"><button id="v8CampaignPrev" aria-label="Campanha anterior"><i class="fa-solid fa-arrow-left"></i></button><div id="v8CampaignDots"></div><button id="v8CampaignNext" aria-label="Próxima campanha"><i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v5-spotlight" aria-label="Oferta em destaque">
+      <div class="container"><div class="flash-deal reveal"><div class="flash-deal__pulse"></div><div><span class="eyebrow"><span></span> ALFA FLASH</span><h3>OFERTA RELÂMPAGO DA SEMANA</h3><p>Condições especiais enquanto durar o estoque.</p></div><div class="flash-countdown" id="flashCountdown"><span><b id="cdHours">00</b><small>HORAS</small></span><i>:</i><span><b id="cdMinutes">00</b><small>MIN</small></span><i>:</i><span><b id="cdSeconds">00</b><small>SEG</small></span></div><a href="#produtos" class="btn btn--ghost">VER OFERTAS</a></div></div>
+    </section>
+    <section class="trustbar reveal"><div class="container trustbar__grid"><div><i class="fa-brands fa-whatsapp"></i><b>Compra assistida</b><span>Feche com um atendente</span></div><div><i class="fa-solid fa-tags"></i><b>Cupons e combos</b><span>Economize no carrinho</span></div><div><i class="fa-solid fa-boxes-stacked"></i><b>Estoque visível</b><span>Disponibilidade atual</span></div><div><i class="fa-solid fa-mobile-screen"></i><b>100% responsivo</b><span>Compra fácil no celular</span></div></div></section>
+
+
+    <section class="section objective-section" id="objetivos" data-evolution-phase="focus">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="eyebrow"><span></span> ALFA SMART PICK</span><h2>QUAL É O SEU <em>OBJETIVO?</em></h2></div><p>Escolha seu foco e o catálogo se reorganiza para mostrar o que faz mais sentido para sua busca.</p></div>
+        <div class="goal-grid reveal" id="goalGrid">
+          <button class="goal-card" data-goal="massa"><i class="fa-solid fa-dumbbell"></i><b>Ganhar massa</b><span>Proteínas, creatina e hipercalóricos</span></button>
+          <button class="goal-card" data-goal="energia"><i class="fa-solid fa-bolt"></i><b>Energia e foco</b><span>Pré-treinos e suporte à performance</span></button>
+          <button class="goal-card" data-goal="recuperacao"><i class="fa-solid fa-heart-pulse"></i><b>Recuperação</b><span>Proteínas, aminoácidos e rotina</span></button>
+          <button class="goal-card" data-goal="saude"><i class="fa-solid fa-leaf"></i><b>Saúde e rotina</b><span>Vitaminas, ômega 3 e praticidade</span></button>
+        </div>
+        <div class="smart-result" id="smartResult" hidden><div><span>SELEÇÃO INTELIGENTE</span><h3 id="smartResultTitle">Seu stack Alfa</h3><p id="smartResultText"></p></div><div class="smart-result__products" id="smartResultProducts"></div><button class="btn btn--primary" id="addSmartStack">ADICIONAR STACK AO CARRINHO</button></div>
+      </div>
+    </section>
+
+    <section class="section" id="lancamentos" data-evolution-phase="power">
+      <div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> NOVIDADES</span><h2>ACABOU DE <em>CHEGAR</em></h2></div><p>Novidades selecionadas para deixar seu catálogo sempre vivo.</p></div><div class="launch-grid" id="launchGrid"></div></div>
+    </section>
+
+    <section class="section category-section" id="categorias">
+      <div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> COMPRE DO SEU JEITO</span><h2>ESCOLHA SUA <em>CATEGORIA</em></h2></div><p>Filtros rápidos para encontrar o que combina com seu objetivo.</p></div><div class="category-grid" id="categoryGrid"></div></div>
+    </section>
+
+
+    <section class="section v6-journey" id="jornada" data-evolution-phase="precision">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow"><span></span> EXPERIÊNCIA V6</span><h2>SUA JORNADA DE <em>PERFORMANCE</em></h2></div>
+          <p>O site acompanha sua navegação e transforma seus sinais em atalhos, recomendações e uma experiência cada vez mais pessoal.</p>
+        </div>
+        <div class="v6-journey-grid reveal">
+          <article class="v6-journey-card" data-v6-scene="discover"><span>01</span><i class="fa-solid fa-compass"></i><h3>Descobrir</h3><p>Explore objetivos, categorias e novidades com transições de cenário progressivas.</p></article>
+          <article class="v6-journey-card" data-v6-scene="compare"><span>02</span><i class="fa-solid fa-code-compare"></i><h3>Comparar</h3><p>Veja diferenças reais e receba uma pontuação Alfa de compatibilidade para sua escolha.</p></article>
+          <article class="v6-journey-card" data-v6-scene="build"><span>03</span><i class="fa-solid fa-cubes-stacked"></i><h3>Montar</h3><p>Crie seu stack, aproveite combos e acompanhe o valor em tempo real.</p></article>
+          <article class="v6-journey-card" data-v6-scene="checkout"><span>04</span><i class="fa-brands fa-whatsapp"></i><h3>Finalizar</h3><p>Leve tudo para o WhatsApp com o pedido estruturado e pronto para o atendimento.</p></article>
+        </div>
+        <div class="v6-profile-panel reveal">
+          <div>
+            <span class="eyebrow"><span></span> ALFA PROFILE</span>
+            <h3>Seu comportamento deixa a loja mais inteligente.</h3>
+            <p id="v6ProfileText">Navegue pelo catálogo para gerar recomendações mais personalizadas.</p>
+          </div>
+          <div class="v6-profile-meter">
+            <div><span>NÍVEL DE PERSONALIZAÇÃO</span><strong id="v6ProfilePercent">12%</strong></div>
+            <div class="v6-profile-track"><i id="v6ProfileBar"></i></div>
+            <small id="v6ProfileHint">Explore produtos, objetivos e comparações.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="produtos">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="eyebrow"><span></span> CATÁLOGO</span><h2>PRODUTOS EM <em>DESTAQUE</em></h2></div><p>Veja sabor, tamanho, estoque, avaliações e detalhes antes de adicionar.</p></div>
+        <div class="product-toolbar reveal"><div class="filter-pills" id="filterPills"></div><label class="sort-box"><span>Ordenar</span><select id="sortProducts"><option value="featured">Destaques</option><option value="bestseller">Mais vendidos</option><option value="launch">Lançamentos</option><option value="priceAsc">Menor preço</option><option value="priceDesc">Maior preço</option><option value="rating">Melhor avaliação</option><option value="name">A–Z</option></select></label></div>
+        <div class="results-info"><span id="resultsCount"></span><button id="clearFilters" class="text-button">Limpar filtros</button></div>
+        <div class="product-grid" id="productGrid"></div><div class="empty-products" id="emptyProducts" hidden><i class="fa-solid fa-box-open"></i><h3>Nenhum produto encontrado</h3><p>Tente outro filtro ou pesquisa.</p></div>
+      </div>
+    </section>
+
+
+    <section class="section compare-section" id="comparador" data-evolution-phase="precision">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="eyebrow"><span></span> ESCOLHA SEM DÚVIDA</span><h2>COMPARE <em>PRODUTOS</em></h2></div><p>Adicione até 3 produtos à comparação e veja preço, avaliação, estoque e categoria lado a lado.</p></div>
+        <div class="compare-tray reveal" id="compareTray"><div class="compare-empty"><i class="fa-solid fa-code-compare"></i><span>Use o botão “Comparar” nos produtos.</span></div><div id="compareSlots" class="compare-slots"></div><button class="btn btn--primary" id="openCompare" disabled>COMPARAR AGORA</button></div>
+      </div>
+    </section>
+
+    <section class="section combos-section" id="combos" data-evolution-phase="peak"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> MAIS POR MENOS</span><h2>COMBOS <em>ALFA</em></h2></div><p>Kits calculados automaticamente com desconto e envio direto para o carrinho.</p></div><div class="combo-grid" id="comboGrid"></div></div></section>
+
+
+    <section class="section build-kit-section" data-evolution-phase="peak">
+      <div class="container"><div class="build-kit reveal"><div class="build-kit__copy"><span class="eyebrow"><span></span> KIT PERSONALIZADO</span><h2>MONTE O SEU <em>STACK.</em></h2><p>Escolha uma base, um reforço e um complemento. O sistema soma tudo e aplica um desconto de kit.</p></div><div class="kit-builder"><label>BASE<select id="kitBase"></select></label><label>REFORÇO<select id="kitBoost"></select></label><label>COMPLEMENTO<select id="kitExtra"></select></label><div class="kit-total"><span>Total do kit</span><del id="kitOldTotal">R$ 0,00</del><strong id="kitTotal">R$ 0,00</strong></div><button class="btn btn--primary" id="addCustomKit">ADICIONAR KIT</button></div></div></div>
+    </section>
+
+    <section class="section v7-commerce-lab" id="ofertas-inteligentes" data-evolution-phase="peak">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="eyebrow"><span></span> ALFA COMMERCE LAB</span><h2>OFERTAS QUE <em>EVOLUEM COM O CARRINHO</em></h2></div><p>Quanto mais completo o pedido, mais vantagens o cliente consegue visualizar antes de falar com a loja.</p></div>
+        <div class="v7-benefit-grid reveal">
+          <article><i class="fa-solid fa-layer-group"></i><span>LEVE MAIS</span><h3>Desconto progressivo</h3><p>Ao aumentar a quantidade do mesmo item, o carrinho mostra uma condição progressiva automática.</p></article>
+          <article><i class="fa-brands fa-pix"></i><span>PIX</span><h3>Condição especial</h3><p>O cliente pode escolher PIX como preferência e visualizar o desconto configurado antes do atendimento.</p></article>
+          <article><i class="fa-solid fa-rotate-left"></i><span>RECUPERAÇÃO</span><h3>Carrinho preservado</h3><p>Se o cliente sair e voltar depois, o site recupera os produtos e continua a jornada de compra.</p></article>
+          <article><i class="fa-solid fa-wand-magic-sparkles"></i><span>COMPRE JUNTO</span><h3>Recomendação automática</h3><p>O sistema sugere complementos compatíveis com o que já foi adicionado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer-banner reveal"><div class="container"><div class="offer-card"><div><span class="eyebrow"><span></span> CUPOM DE BOAS-VINDAS</span><h2>USE <em>ALFA10</em> NO CARRINHO</h2><p>O desconto será calculado antes de você enviar o pedido pelo WhatsApp.</p></div><button class="btn btn--primary" id="copyCoupon">COPIAR CUPOM <i class="fa-regular fa-copy"></i></button></div></div></section>
+
+    <section class="section ranking-section"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> TOP ALFA</span><h2>MAIS <em>VENDIDOS</em></h2></div><p>Os queridinhos do catálogo em um ranking dinâmico.</p></div><div class="ranking" id="ranking"></div></div></section>
+
+    <section class="section reviews-section" id="avaliacoes"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> QUEM COMPRA, CONTA</span><h2>AVALIAÇÕES <em>REAIS</em></h2></div><p>Prova social para dar mais segurança durante a escolha.</p></div><div class="reviews-grid" id="reviewsGrid"></div></div></section>
+
+    <section class="section faq-section"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow"><span></span> DÚVIDAS RÁPIDAS</span><h2>COMO FUNCIONA A <em>COMPRA</em></h2></div></div><div class="faq" id="faq"><details open><summary>Como finalizo o pedido?</summary><p>Monte o carrinho, informe seus dados básicos e clique em “Finalizar no WhatsApp”. O pedido completo será enviado para a loja.</p></details><details><summary>Posso escolher sabor e tamanho?</summary><p>Sim. Em cada produto você escolhe as variações disponíveis antes de adicionar ao carrinho.</p></details><details><summary>O valor da entrega aparece no site?</summary><p>Você pode informar seu CEP e o site faz uma estimativa configurável. O atendente confirma o valor final no WhatsApp.</p></details><details><summary>Consigo usar cupom?</summary><p>Sim. Sim. O sistema possui motor de cupons e descontos no carrinho.</p></details></div></div></section>
+
+
+    <section class="section v9-loyalty-section" id="clube-alfa" data-evolution-phase="peak">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow"><span></span> CLUBE ALFA V9</span><h2>QUANTO MAIS VOCÊ EVOLUI,<br><em>MAIS VOCÊ GANHA.</em></h2></div>
+          <p>Programa de fidelidade integrado ao histórico de compras. Pontos, níveis, benefícios e indicações em uma única experiência.</p>
+        </div>
+        <div class="v9-loyalty-grid reveal">
+          <article class="v9-loyalty-card v9-loyalty-card--hero">
+            <div class="v9-level-orbit"><i></i><strong id="v9LevelName">START</strong><small>SEU NÍVEL</small></div>
+            <div><span>CLUBE ALFA</span><h3 id="v9PointsHeadline">Entre com seu WhatsApp e veja seus pontos</h3><p id="v9PointsText">A cada compra concluída, seu histórico pode gerar pontos e desbloquear novos níveis.</p></div>
+            <form id="v9LoyaltyLookup" class="v9-loyalty-lookup"><input id="v9LoyaltyPhone" inputmode="tel" placeholder="Seu WhatsApp"><button type="submit">CONSULTAR</button></form>
+          </article>
+          <article class="v9-loyalty-card"><i class="fa-solid fa-medal"></i><span>NÍVEIS</span><h3>Start → Pro → Elite</h3><p>Os níveis evoluem conforme seu total de compras concluídas.</p><div class="v9-level-bars"><i></i><i></i><i></i></div></article>
+          <article class="v9-loyalty-card"><i class="fa-solid fa-user-group"></i><span>INDIQUE & EVOLUA</span><h3>Seu código de indicação</h3><p>Consulte seu perfil para gerar um código Alfa pessoal.</p><button class="v9-outline-btn" id="v9ReferralButton">GERAR CÓDIGO</button></article>
+          <article class="v9-loyalty-card"><i class="fa-solid fa-bell"></i><span>ALERTAS INTELIGENTES</span><h3>Reposição e preço</h3><p>Marque produtos para lembrar quando houver reposição ou uma condição melhor.</p><button class="v9-outline-btn" id="v9OpenAlerts">VER MEUS ALERTAS</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section v8-customer-section" id="minha-alfa" data-evolution-phase="precision">
+      <div class="container">
+        <div class="section-heading reveal"><div><span class="eyebrow"><span></span> CENTRAL DO CLIENTE</span><h2>SUA HISTÓRIA NA <em>ALFA</em></h2></div><p>Acompanhe pedidos, reveja compras e mantenha seus favoritos sempre à mão neste dispositivo.</p></div>
+        <div class="v8-customer-grid reveal">
+          <article class="v8-customer-card v8-customer-card--main"><i class="fa-solid fa-box-open"></i><span>ACOMPANHAMENTO</span><h3>Onde está meu pedido?</h3><p>Use o código do pedido e os últimos números do seu WhatsApp para consultar o status.</p><button class="btn btn--primary" data-v8-open-account="tracking">ACOMPANHAR PEDIDO</button></article>
+          <article class="v8-customer-card"><i class="fa-solid fa-clock-rotate-left"></i><span>HISTÓRICO</span><h3>Compre novamente</h3><p>Pedidos feitos neste aparelho aparecem na sua central e podem voltar ao carrinho em segundos.</p><button class="v8-text-btn" data-v8-open-account="history">VER HISTÓRICO <i class="fa-solid fa-arrow-right"></i></button></article>
+          <article class="v8-customer-card"><i class="fa-solid fa-heart"></i><span>LISTA DE DESEJOS</span><h3>Seus favoritos</h3><p>Tenha uma visão rápida dos suplementos que você marcou para comparar depois.</p><button class="v8-text-btn" data-v8-open-account="favorites">ABRIR FAVORITOS <i class="fa-solid fa-arrow-right"></i></button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section whatsapp-section" id="contato"><div class="container"><div class="whatsapp-card reveal"><div class="whatsapp-card__icon"><i class="fa-brands fa-whatsapp"></i></div><div><span class="eyebrow"><span></span> ATENDIMENTO HUMANO</span><h2>ESCOLHA NO SITE.<br><em>FINALIZE NO WHATSAPP.</em></h2><p>O atendente recebe uma mensagem organizada com produtos, variações, quantidades, desconto, entrega estimada e total.</p></div><button class="btn btn--whatsapp" id="directWhatsApp">FALAR COM A LOJA <i class="fa-brands fa-whatsapp"></i></button></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer__grid"><div class="footer__brand"><img src="assets/logo-alfa-suplementos.png" alt="Alfa Suplementos"><p>Performance, qualidade e atendimento para quem quer evoluir.</p></div><div><h4>Loja</h4><a href="#produtos">Produtos</a><a href="#combos">Combos</a><a href="#lancamentos">Lançamentos</a></div><div><h4>Atendimento</h4><a href="#" id="footerWhatsApp">WhatsApp</a><a href="admin.html">Painel administrativo</a><span>Segunda a sábado</span></div><div><h4>Redes</h4><div class="socials"><a href="#" id="instagramLink"><i class="fa-brands fa-instagram"></i></a><a href="#" id="facebookLink"><i class="fa-brands fa-facebook-f"></i></a><a href="#" id="footerWhatsIcon"><i class="fa-brands fa-whatsapp"></i></a></div></div></div><div class="container footer__bottom"><p>© <span id="year"></span> Alfa Suplementos.</p><p>V9 • fidelidade + CRM comportamental + margem + curva ABC + metas <i class="fa-solid fa-bolt"></i></p></div></footer>
+
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true"><button class="overlay-close" id="searchClose"><i class="fa-solid fa-xmark"></i></button><div class="search-overlay__inner"><span>ENCONTRE SEU SUPLEMENTO</span><div class="search-large"><input id="searchInput" type="search" placeholder="Whey, creatina, marca, categoria..."><i class="fa-solid fa-magnifying-glass"></i></div><p>Pesquisa em nome, marca, categoria e descrição.</p></div></div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true"><div class="cart-drawer__header"><div><span>SEU PEDIDO</span><h3>Carrinho <small id="cartItemLabel">0 itens</small></h3></div><button class="icon-btn" id="cartClose"><i class="fa-solid fa-xmark"></i></button></div><div class="cart-items" id="cartItems"></div><div class="cart-empty" id="cartEmpty"><i class="fa-solid fa-cart-shopping"></i><h3>Seu carrinho está vazio</h3><p>Adicione produtos para começar.</p></div><div class="cart-footer" id="cartFooter" hidden><div class="coupon-box"><input id="couponInput" placeholder="Cupom de desconto"><button id="applyCoupon">Aplicar</button></div><div class="coupon-feedback" id="couponFeedback"></div><div class="delivery-box"><div class="delivery-box__head"><b><i class="fa-solid fa-truck-fast"></i> Estimar entrega</b><small>Confirmação final no WhatsApp</small></div><div class="delivery-form"><input id="cepInput" inputmode="numeric" maxlength="9" placeholder="00000-000"><button id="calcDelivery">Calcular</button></div><div id="deliveryFeedback" class="delivery-feedback"></div></div><div id="v7BuyTogether" class="v7-buy-together"></div><div class="v7-payment-box"><div><b><i class="fa-solid fa-wallet"></i> Preferência de pagamento</b><small>A confirmação continua sendo feita com o atendente.</small></div><div class="v7-payment-options"><button type="button" data-payment="whatsapp" class="active"><i class="fa-brands fa-whatsapp"></i> Combinar no WhatsApp</button><button type="button" data-payment="pix"><i class="fa-brands fa-pix"></i> PIX <span id="v7PixBadge">−5%</span></button></div><div id="v7PaymentHint" class="v7-payment-hint">Pagamento e disponibilidade são confirmados pela loja.</div></div><div class="cart-summary"><div><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div><div><span>Desconto</span><strong id="cartDiscount">− R$ 0,00</strong></div><div id="v7PixDiscountRow" hidden><span>Desconto PIX</span><strong id="v7PixDiscount">− R$ 0,00</strong></div><div><span>Entrega estimada</span><strong id="cartDelivery">R$ 0,00</strong></div><div class="cart-summary__total"><span>Total estimado</span><strong id="checkoutTotal">R$ 0,00</strong></div></div><div class="customer-fields"><input id="customerName" placeholder="Seu nome"><input id="customerPhone" inputmode="tel" placeholder="Seu WhatsApp"><input id="customerCity" placeholder="Cidade/Bairro"><input id="customerEmail" type="email" placeholder="E-mail (opcional)"><textarea id="customerNote" placeholder="Observação do pedido (opcional)"></textarea></div><div class="checkout-id-preview" id="checkoutIdPreview"><i class="fa-solid fa-receipt"></i><span>Seu pedido receberá um código Alfa para acompanhamento no atendimento.</span></div><button class="checkout-button" id="checkoutButton"><span><small>Finalizar pedido</small><strong id="checkoutButtonTotal">R$ 0,00</strong></span><i class="fa-brands fa-whatsapp"></i></button><small class="checkout-note"><i class="fa-solid fa-shield-halved"></i> O pagamento não acontece no site. O atendente confirma tudo com você.</small></div></aside>
+
+  <div class="product-modal" id="productModal" aria-hidden="true"><div class="product-modal__backdrop" data-close-modal></div><div class="product-modal__panel"><button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button><div id="productModalContent"></div></div></div>
+  <div class="v7-recovery" id="v7Recovery" hidden><i class="fa-solid fa-cart-arrow-down"></i><div><b>Seu carrinho continua aqui</b><span id="v7RecoveryText">Retome sua compra de onde parou.</span></div><button id="v7RecoveryOpen">ABRIR CARRINHO</button><button class="v7-recovery__close" id="v7RecoveryClose" aria-label="Fechar">×</button></div><a class="floating-whatsapp" id="floatingWhatsApp" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>Fale conosco</span></a>
+  <div class="toast-stack" id="toastStack"></div>
+
+
+  <div class="command-palette" id="commandPalette" aria-hidden="true"><div class="command-palette__backdrop" data-close-command></div><div class="command-palette__panel"><div class="command-search"><i class="fa-solid fa-bolt"></i><input id="commandInput" placeholder="Buscar produto, categoria ou ação..."><kbd>ESC</kbd></div><div id="commandResults" class="command-results"></div><div class="command-hint"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>Enter</kbd> selecionar</span></div></div></div>
+
+  <div class="compare-modal" id="compareModal" aria-hidden="true"><div class="compare-modal__backdrop" data-close-compare></div><div class="compare-modal__panel"><button class="modal-close" data-close-compare><i class="fa-solid fa-xmark"></i></button><span class="eyebrow"><span></span> COMPARADOR ALFA</span><h2>QUAL COMBINA MAIS <em>COM VOCÊ?</em></h2><div class="compare-table-wrap" id="compareTable"></div></div></div>
+
+  <div class="recommender-modal" id="recommenderModal" aria-hidden="true"><div class="recommender-modal__backdrop" data-close-recommender></div><div class="recommender-modal__panel"><button class="modal-close" data-close-recommender><i class="fa-solid fa-xmark"></i></button><span class="eyebrow"><span></span> ALFA SMART PICK</span><h2>DESCUBRA SEU <em>STACK</em></h2><div class="quiz-progress"><i id="quizProgress"></i></div><div id="quizContent"></div></div></div>
+
+  <div class="v8-account" id="v8Account" aria-hidden="true"><div class="v8-account__backdrop" data-v8-close-account></div><div class="v8-account__panel"><button class="modal-close" data-v8-close-account><i class="fa-solid fa-xmark"></i></button><div class="v8-account__head"><span class="eyebrow"><span></span> MINHA ALFA</span><h2>SUA CENTRAL DE <em>PERFORMANCE</em></h2><p>Pedidos, histórico e favoritos em um único lugar.</p></div><div class="v8-account-tabs"><button class="active" data-v8-account-tab="tracking"><i class="fa-solid fa-location-dot"></i> Rastrear</button><button data-v8-account-tab="history"><i class="fa-solid fa-clock-rotate-left"></i> Histórico</button><button data-v8-account-tab="favorites"><i class="fa-solid fa-heart"></i> Favoritos</button></div><div id="v8AccountContent" class="v8-account__content"></div></div></div>
+
+  <nav class="v8-mobile-dock" aria-label="Navegação rápida"><a href="#inicio"><i class="fa-solid fa-house"></i><span>Início</span></a><a href="#produtos"><i class="fa-solid fa-bag-shopping"></i><span>Loja</span></a><button id="v8MobileSearch"><i class="fa-solid fa-magnifying-glass"></i><span>Buscar</span></button><button id="v8MobileAccount"><i class="fa-regular fa-user"></i><span>Minha Alfa</span></button><button id="v8MobileCart"><i class="fa-solid fa-cart-shopping"></i><span>Carrinho</span><b id="v8DockCartCount">0</b></button></nav>
+
+  <div class="v8-live-offer" id="v8LiveOffer" hidden><div><span>OFERTA ATIVA</span><b id="v8LiveOfferTitle">Oferta Alfa</b><small id="v8LiveOfferTimer">termina em breve</small></div><a href="#produtos">APROVEITAR</a><button id="v8LiveOfferClose" aria-label="Fechar">×</button></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="data.js"></script><script src="supabase-config.js"></script><script src="cloud.js"></script><script src="evolution-bg.js"></script><script src="script.js"></script><script src="v5.js"></script><script src="v6.js"></script><script src="v7.js"></script><script src="v8.js"></script><script src="v9.js"></script>
+</body>
+</html>
